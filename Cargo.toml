@@ -1,0 +1,23 @@
+[package]
+name = "auth-proxy"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+redis = { version = "0.27.5", features = ["r2d2"]}
+log = "0.4.22"
+r2d2 = "0.8.10"
+rand = "0.8.5"
+rouille = "3.6.2"
+serde = {version = "1.0.215",  features=["derive", "serde_derive"]}
+serde_json = "1.0.133"
+simple_logger = "5.0.0"
+curl = "0.4.47"
+base64 = "0.22.1"
+hyper = "1.5.1"
+hyper-tls = "0.6.0"
+reqwest = "0.12.9"
+futures = "0.3.31"
+ureq = "2.10.1"
