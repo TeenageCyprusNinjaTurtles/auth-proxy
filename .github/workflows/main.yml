@@ -1,0 +1,36 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build-and-push:
+    name: Build and Push Docker Image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive # Ensures submodules are checked out recursively
+        fetch-depth: 0        # Fetch all history for all tags
+
+    - name: Log in to GitHub Container Registry
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build Docker Image
+      run: |
+        docker build -t ghcr.io/teenagecyprusninjaturtles/auth-proxy:${{ github.ref_name }} -f Dockerfile.assembly .
+
+    - name: Push Docker Image
+      run: |
+        docker push  ghcr.io/teenagecyprusninjaturtles/auth-proxy:${{ github.ref_name }}

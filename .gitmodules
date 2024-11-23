@@ -1,0 +1,3 @@
+[submodule "rust-lib"]
+    path = src/lib
+    url = https://github.com/TeenageCyprusNinjaTurtles/rust-lib
