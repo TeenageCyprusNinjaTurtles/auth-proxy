@@ -65,13 +65,13 @@ fn main() {
         false,
     );
     service_map.add_service(
-        "training-service",
+        "event-service",
         "training",
         "127.0.0.1",
-        "TRAINING_SERVICE_HOST",
-        5432,
-        "TRAINING_SERVICE_PORT",
-        true
+        "EVENT_SERVICE_HOST",
+        5001,
+        "EVENT_SERVICE_PORT",
+        false
     );
 
 
