@@ -66,7 +66,7 @@ fn main() {
     );
     service_map.add_service(
         "event-service",
-        "training",
+        "event",
         "127.0.0.1",
         "EVENT_SERVICE_HOST",
         5001,
